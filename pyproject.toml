@@ -1,0 +1,43 @@
+[project]
+name = "deeplob"
+version = "0.1.0"
+description = "Deep Convolutional Neural Networks for Limit Order Books"
+readme = "README.md"
+requires-python = ">=3.8,<3.10"
+dependencies = [
+    "torch==1.9.0",
+    "torchvision==0.10.0",
+    "torchaudio==0.9.0",
+    "numpy>=1.19.4,<1.22.0",
+    "pandas>=1.3.0,<1.4.0",
+    "matplotlib>=3.3.4,<3.6.0",
+    "scikit-learn>=1.0.0,<1.1.0",
+    "tqdm>=4.49.0,<4.66.0",
+    "torchinfo>=1.5.0,<1.8.0",
+    "requests>=2.25.0,<2.29.0",
+]
+
+[tool.uv]
+managed = true
+python-preference = "system"
+preview = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+extend-select = ["I"]
+fix = true
+unsafe-fixes = false
+exclude = [".git", ".venv", "build", "dist", "__pycache__", "*.ipynb"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.pyright]
+typeCheckingMode = "strict"
+include = ["jupyter_pytorch", "jupyter_tensorflow"]
+venvPath = "."
+venv = ".venv"
+reportMissingImports = true
+reportMissingTypeStubs = false
